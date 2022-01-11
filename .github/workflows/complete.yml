@@ -115,6 +115,7 @@ jobs:
           CONFIG_OPENVPN_openssl_ENABLE_PORT_SHARE=y
           CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
           CONFIG_PACKAGE_6in4=y
+          CONFIG_PACKAGE_adbyby=y
           CONFIG_PACKAGE_bash=y
           CONFIG_PACKAGE_blkid=y
           CONFIG_PACKAGE_boost=y
@@ -196,6 +197,8 @@ jobs:
           CONFIG_PACKAGE_lsblk=y
           CONFIG_PACKAGE_lua-maxminddb=y
           CONFIG_PACKAGE_luasocket=y
+          CONFIG_PACKAGE_luci-app-adbyby-plus=y
+          CONFIG_PACKAGE_luci-app-adguardhome=y
           # CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-diskman=y
@@ -210,6 +213,8 @@ jobs:
           CONFIG_PACKAGE_luci-app-vssr=y
           CONFIG_PACKAGE_luci-app-zerotier=y
           CONFIG_PACKAGE_luci-compat=y
+          CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ddns-en=y
           CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
@@ -287,6 +292,7 @@ jobs:
           CONFIG_TARGET_ROOTFS_PARTSIZE=256
           # CONFIG_UnblockNeteaseMusic_Go is not set
           # CONFIG_UnblockNeteaseMusic_NodeJS is not set
+          CONFIG_VMDK_IMAGES=y
           CONFIG_boost-compile-visibility-hidden=y
           CONFIG_boost-runtime-shared=y
           CONFIG_boost-static-and-shared-libs=y

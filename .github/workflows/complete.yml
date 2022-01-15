@@ -1,4 +1,4 @@
-name: OpenWrt-CI-complete-nginx
+name: OpenWrt-CI-complete-thread-2-nginx
 
 on:
   push:
@@ -164,7 +164,6 @@ jobs:
           CONFIG_PACKAGE_libatomic=y
           CONFIG_PACKAGE_libattr=y
           CONFIG_PACKAGE_libbpf=y
-          CONFIG_PACKAGE_libbz2=y
           CONFIG_PACKAGE_libcap=y
           CONFIG_PACKAGE_libcap-bin=y
           CONFIG_PACKAGE_libcap-bin-capsh-shell="/bin/sh"
@@ -173,12 +172,7 @@ jobs:
           CONFIG_PACKAGE_libdb47=y
           CONFIG_PACKAGE_libelf=y
           CONFIG_PACKAGE_libev=y
-          CONFIG_PACKAGE_libexif=y
-          CONFIG_PACKAGE_libffmpeg-audio-dec=y
-          CONFIG_PACKAGE_libflac=y
-          CONFIG_PACKAGE_libid3tag=y
           CONFIG_PACKAGE_libipset=y
-          CONFIG_PACKAGE_libjpeg-turbo=y
           CONFIG_PACKAGE_libltdl=y
           CONFIG_PACKAGE_liblua5.3=y
           CONFIG_PACKAGE_liblzo=y
@@ -189,7 +183,6 @@ jobs:
           CONFIG_PACKAGE_libmount=y
           CONFIG_PACKAGE_libnatpmp=y
           CONFIG_PACKAGE_libnghttp2=y
-          CONFIG_PACKAGE_libogg=y
           CONFIG_PACKAGE_libopenldap=y
           CONFIG_PACKAGE_libparted=y
           CONFIG_PACKAGE_libpcre=y
@@ -197,40 +190,41 @@ jobs:
           CONFIG_PACKAGE_libruby=y
           CONFIG_PACKAGE_libsasl2=y
           CONFIG_PACKAGE_libsodium=y
-          CONFIG_PACKAGE_libsqlite3=y
           CONFIG_PACKAGE_libstdcpp=y
           CONFIG_PACKAGE_libudns=y
           CONFIG_PACKAGE_libuv=y
-          CONFIG_PACKAGE_libvorbis=y
           CONFIG_PACKAGE_libyaml=y
           CONFIG_PACKAGE_lsblk=y
           CONFIG_PACKAGE_lua-maxminddb=y
           CONFIG_PACKAGE_luasocket=y
+          CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-adguardhome=y
           # CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-diskman=y
+          CONFIG_PACKAGE_luci-app-openclash=y
+          CONFIG_PACKAGE_luci-app-openvpn=y
+          CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-passwall=y
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
-          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client is not set
-          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
-          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server is not set
-          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs is not set
-          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
+          CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
-          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_ShadowsocksR_Libev_Server is not set
-          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Trojan is not set
-          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Xray is not set
-          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Xray_plugin is not set
+          CONFIG_PACKAGE_luci-app-vssr=y
           CONFIG_PACKAGE_luci-app-zerotier=y
           CONFIG_PACKAGE_luci-compat=y
+          CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ddns-en=y
           CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-openvpn-en=y
+          CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-vssr-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
           CONFIG_PACKAGE_luci-nginx=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
@@ -239,8 +233,6 @@ jobs:
           CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
           CONFIG_PACKAGE_luci-theme-argonv3=y
           CONFIG_PACKAGE_microsocks=y
-          CONFIG_PACKAGE_minidlna=y
-          CONFIG_PACKAGE_miniupnpd=y
           CONFIG_PACKAGE_nginx=y
           CONFIG_PACKAGE_nginx-mod-luci=y
           CONFIG_PACKAGE_nginx-mod-luci-ssl=y
@@ -296,13 +288,6 @@ jobs:
           CONFIG_PACKAGE_zlib=y
           CONFIG_PARTED_READLINE=y
           CONFIG_PCRE_JIT_ENABLED=y
-          CONFIG_SQLITE3_DYNAMIC_EXTENSIONS=y
-          CONFIG_SQLITE3_ENABLE_COLUMN_METADATA=y
-          CONFIG_SQLITE3_FTS3=y
-          CONFIG_SQLITE3_FTS4=y
-          CONFIG_SQLITE3_FTS5=y
-          CONFIG_SQLITE3_JSON1=y
-          CONFIG_SQLITE3_RTREE=y
           CONFIG_TARGET_KERNEL_PARTSIZE=128
           CONFIG_TARGET_ROOTFS_PARTSIZE=256
           # CONFIG_UnblockNeteaseMusic_Go is not set
@@ -321,7 +306,7 @@ jobs:
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
-          make -j$(($(nproc))) || make -j1 V=s
+          make -j$(($(nproc) + 1)) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
           echo "======================="

@@ -1,4 +1,4 @@
-name: OpenWrt-CI-complete-thread-2-nginx
+name: OpenWrt-CI-complete-nginx
 
 on:
   push:
@@ -206,40 +206,31 @@ jobs:
           CONFIG_PACKAGE_lsblk=y
           CONFIG_PACKAGE_lua-maxminddb=y
           CONFIG_PACKAGE_luasocket=y
-          CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-adguardhome=y
           # CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
           CONFIG_PACKAGE_luci-app-ddns=y
           CONFIG_PACKAGE_luci-app-diskman=y
-          CONFIG_PACKAGE_luci-app-minidlna=y
-          CONFIG_PACKAGE_luci-app-openclash=y
-          CONFIG_PACKAGE_luci-app-openvpn=y
-          CONFIG_PACKAGE_luci-app-openvpn-server=y
           CONFIG_PACKAGE_luci-app-passwall=y
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
-          CONFIG_PACKAGE_luci-app-ssr-plus=y
-          CONFIG_PACKAGE_luci-app-upnp=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Server is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_Obfs is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
           CONFIG_PACKAGE_luci-app-vlmcsd=y
-          CONFIG_PACKAGE_luci-app-vssr=y
+          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_ShadowsocksR_Libev_Server is not set
+          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Trojan is not set
+          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Xray is not set
+          # CONFIG_PACKAGE_luci-app-vssr_INCLUDE_Xray_plugin is not set
           CONFIG_PACKAGE_luci-app-zerotier=y
           CONFIG_PACKAGE_luci-compat=y
-          CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ddns-en=y
           CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-minidlna-en=y
-          CONFIG_PACKAGE_luci-i18n-minidlna-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-en=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-passwall-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-upnp-en=y
-          CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-vssr-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
           CONFIG_PACKAGE_luci-nginx=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
@@ -330,7 +321,7 @@ jobs:
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
         run: |
-          make -j$(($(nproc) + 1)) || make -j1 V=s
+          make -j$(($(nproc))) || make -j1 V=s
           echo "======================="
           echo "Space usage:"
           echo "======================="

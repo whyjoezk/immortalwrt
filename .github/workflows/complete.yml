@@ -1,4 +1,4 @@
-name: OpenWrt-CI-complete-thread-2-nginx
+name: OpenWrt-CI-complete-nginx
 
 on:
   push:
@@ -115,14 +115,12 @@ jobs:
           CONFIG_OPENVPN_openssl_ENABLE_PORT_SHARE=y
           CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
           CONFIG_PACKAGE_6in4=y
-          CONFIG_PACKAGE_adbyby=y
+          CONFIG_PACKAGE_adguardhome=y
           CONFIG_PACKAGE_bash=y
-          CONFIG_PACKAGE_blkid=y
           CONFIG_PACKAGE_boost=y
           CONFIG_PACKAGE_boost-date_time=y
           CONFIG_PACKAGE_boost-program_options=y
           CONFIG_PACKAGE_boost-system=y
-          CONFIG_PACKAGE_btrfs-progs=y
           CONFIG_PACKAGE_ca-certificates=y
           CONFIG_PACKAGE_chinadns-ng=y
           CONFIG_PACKAGE_coreutils=y
@@ -132,6 +130,7 @@ jobs:
           CONFIG_PACKAGE_ddns-scripts=y
           CONFIG_PACKAGE_dns2socks=y
           CONFIG_PACKAGE_haproxy=y
+          CONFIG_PACKAGE_https-dns-proxy=y
           CONFIG_PACKAGE_ip-full=y
           CONFIG_PACKAGE_ip6tables=y
           CONFIG_PACKAGE_ip6tables-mod-nat=y
@@ -141,8 +140,6 @@ jobs:
           CONFIG_PACKAGE_iptables-mod-iprange=y
           CONFIG_PACKAGE_iptables-mod-tproxy=y
           CONFIG_PACKAGE_ipv6helper=y
-          CONFIG_PACKAGE_kmod-crypto-acompress=y
-          CONFIG_PACKAGE_kmod-fs-btrfs=y
           CONFIG_PACKAGE_kmod-ip6tables=y
           CONFIG_PACKAGE_kmod-ipt-extra=y
           CONFIG_PACKAGE_kmod-ipt-iprange=y
@@ -150,19 +147,12 @@ jobs:
           CONFIG_PACKAGE_kmod-ipt-tproxy=y
           CONFIG_PACKAGE_kmod-iptunnel=y
           CONFIG_PACKAGE_kmod-iptunnel4=y
-          CONFIG_PACKAGE_kmod-lib-lzo=y
-          CONFIG_PACKAGE_kmod-lib-raid6=y
-          CONFIG_PACKAGE_kmod-lib-xor=y
-          CONFIG_PACKAGE_kmod-lib-zlib-deflate=y
-          CONFIG_PACKAGE_kmod-lib-zlib-inflate=y
-          CONFIG_PACKAGE_kmod-lib-zstd=y
           CONFIG_PACKAGE_kmod-nf-ipt6=y
           CONFIG_PACKAGE_kmod-nf-nat6=y
           CONFIG_PACKAGE_kmod-nf-reject6=y
           CONFIG_PACKAGE_kmod-sit=y
           CONFIG_PACKAGE_kmod-tun=y
           CONFIG_PACKAGE_libatomic=y
-          CONFIG_PACKAGE_libattr=y
           CONFIG_PACKAGE_libbpf=y
           CONFIG_PACKAGE_libcap=y
           CONFIG_PACKAGE_libcap-bin=y
@@ -178,13 +168,9 @@ jobs:
           CONFIG_PACKAGE_liblzo=y
           CONFIG_PACKAGE_libmaxminddb=y
           CONFIG_PACKAGE_libmbedtls=y
-          CONFIG_PACKAGE_libminiupnpc=y
           CONFIG_PACKAGE_libmnl=y
-          CONFIG_PACKAGE_libmount=y
-          CONFIG_PACKAGE_libnatpmp=y
           CONFIG_PACKAGE_libnghttp2=y
           CONFIG_PACKAGE_libopenldap=y
-          CONFIG_PACKAGE_libparted=y
           CONFIG_PACKAGE_libpcre=y
           CONFIG_PACKAGE_libreadline=y
           CONFIG_PACKAGE_libruby=y
@@ -194,14 +180,14 @@ jobs:
           CONFIG_PACKAGE_libudns=y
           CONFIG_PACKAGE_libuv=y
           CONFIG_PACKAGE_libyaml=y
-          CONFIG_PACKAGE_lsblk=y
+          CONFIG_PACKAGE_lua-cjson=y
           CONFIG_PACKAGE_lua-maxminddb=y
           CONFIG_PACKAGE_luasocket=y
-          CONFIG_PACKAGE_luci-app-adbyby-plus=y
           CONFIG_PACKAGE_luci-app-adguardhome=y
-          # CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
           CONFIG_PACKAGE_luci-app-ddns=y
-          CONFIG_PACKAGE_luci-app-diskman=y
+          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_btrfs_progs is not set
+          # CONFIG_PACKAGE_luci-app-diskman_INCLUDE_lsblk is not set
+          CONFIG_PACKAGE_luci-app-https-dns-proxy=y
           CONFIG_PACKAGE_luci-app-openclash=y
           CONFIG_PACKAGE_luci-app-openvpn=y
           CONFIG_PACKAGE_luci-app-openvpn-server=y
@@ -211,13 +197,12 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
           CONFIG_PACKAGE_luci-app-vssr=y
-          CONFIG_PACKAGE_luci-app-zerotier=y
           CONFIG_PACKAGE_luci-compat=y
-          CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ddns-en=y
           CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-diskman-zh-cn=y
+          CONFIG_PACKAGE_luci-i18n-https-dns-proxy-en=y
+          CONFIG_PACKAGE_luci-i18n-https-dns-proxy-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-openvpn-en=y
           CONFIG_PACKAGE_luci-i18n-openvpn-server-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
@@ -225,13 +210,9 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vssr-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
           CONFIG_PACKAGE_luci-nginx=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
           CONFIG_PACKAGE_luci-ssl-nginx=y
-          CONFIG_PACKAGE_luci-ssl-openssl=y
-          CONFIG_PACKAGE_luci-theme-argon-dark-mod=y
-          CONFIG_PACKAGE_luci-theme-argonv3=y
           CONFIG_PACKAGE_microsocks=y
           CONFIG_PACKAGE_nginx=y
           CONFIG_PACKAGE_nginx-mod-luci=y
@@ -246,7 +227,6 @@ jobs:
           CONFIG_PACKAGE_openssl-util=y
           CONFIG_PACKAGE_openvpn-easy-rsa=y
           CONFIG_PACKAGE_openvpn-openssl=y
-          CONFIG_PACKAGE_parted=y
           CONFIG_PACKAGE_resolveip=y
           CONFIG_PACKAGE_ruby=y
           CONFIG_PACKAGE_ruby-bigdecimal=y
@@ -269,7 +249,6 @@ jobs:
           CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir=y
           CONFIG_PACKAGE_shadowsocksr-libev-ssr-server=y
           CONFIG_PACKAGE_simple-obfs=y
-          CONFIG_PACKAGE_smartmontools=y
           CONFIG_PACKAGE_tcping=y
           CONFIG_PACKAGE_trojan=y
           CONFIG_PACKAGE_trojan-plus=y
@@ -284,9 +263,7 @@ jobs:
           CONFIG_PACKAGE_wget-ssl=y
           CONFIG_PACKAGE_xray-core=y
           CONFIG_PACKAGE_xray-plugin=y
-          CONFIG_PACKAGE_zerotier=y
           CONFIG_PACKAGE_zlib=y
-          CONFIG_PARTED_READLINE=y
           CONFIG_PCRE_JIT_ENABLED=y
           CONFIG_TARGET_KERNEL_PARTSIZE=128
           CONFIG_TARGET_ROOTFS_PARTSIZE=256
@@ -348,5 +325,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
-          tag: ${{ github.ref }}-complete-thread-2-nginx
+          tag: ${{ github.ref }}-complete-nginx
           file_glob: true

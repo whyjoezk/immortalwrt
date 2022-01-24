@@ -43,14 +43,14 @@ jobs:
       - name: add app
         run: |
           cd package/emortal/
-          git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
-          git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr.git
+          # git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
+          # git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
           # fix WARNING: Makefile 'package/feeds/luci/luci-app-firewall/Makefile' has a dependency on 'uci-firewall', which does not exist
-          sed -i "s/+uci-firewall/+firewall/g" package/feeds/luci/luci-app-firewall/Makefile
+          # sed -i "s/+uci-firewall/+firewall/g" package/feeds/luci/luci-app-firewall/Makefile
       - name: Generate configuration file
         run: |
           rm -f ./.config*
@@ -331,5 +331,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
-          tag: ${{ github.ref }}-complete-nginx
+          tag: ${{ github.ref }}-complete-nginx-vssr
           file_glob: true

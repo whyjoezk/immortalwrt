@@ -198,7 +198,6 @@ jobs:
           CONFIG_PACKAGE_luci-app-smartdns=y
           CONFIG_PACKAGE_luci-app-ssr-plus=y
           CONFIG_PACKAGE_luci-app-vlmcsd=y
-          CONFIG_PACKAGE_luci-app-vssr=y
           CONFIG_PACKAGE_luci-compat=y
           CONFIG_PACKAGE_luci-i18n-accesscontrol-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-adguardhome-zh-cn=y
@@ -213,7 +212,6 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-vssr-zh-cn=y
           CONFIG_PACKAGE_luci-nginx=y
           CONFIG_PACKAGE_luci-proto-ipv6=y
           CONFIG_PACKAGE_luci-ssl-nginx=y
@@ -331,5 +329,5 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./artifact/firmware/*
-          tag: ${{ github.ref }}-complete-nginx-vssr
+          tag: ${{ github.ref }}-complete-nginx
           file_glob: true

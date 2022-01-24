@@ -49,6 +49,8 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
+          # fix WARNING: Makefile 'package/feeds/luci/luci-app-firewall/Makefile' has a dependency on 'uci-firewall', which does not exist
+          sed -i "s/+uci-firewall/+firewall/g" package/feeds/luci/luci-app-firewall/Makefile
       - name: Generate configuration file
         run: |
           make defconfig

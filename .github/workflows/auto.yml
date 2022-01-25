@@ -43,15 +43,15 @@ jobs:
       - name: add app
         run: |
           cd package/emortal/
-          git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
-          git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr.git
+          # git clone --depth=1 https://github.com/jerrykuku/lua-maxminddb.git
+          # git clone --depth=1 https://github.com/jerrykuku/luci-app-vssr.git
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
       - name: Generate configuration file
         run: |
-          cat all.config >.config
+          # cat all.config >.config
           make defconfig
       - name: Make download
         run: |
